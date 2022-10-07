@@ -1,9 +1,5 @@
-- hosts: localhost
-  gather_facts: false
-  become: true
 
-  tasks:
-      block:                                                                                                                                                                                                                                                                                                                 
+  block:                                                                                                                                                                                                                                                                                                                 
        - name: Set name tag for AWS instances                                                                                                                                                                                                                                                                                 
          ec2_tag:                                                                                                                                                                                                                                                                                                             
            aws_access_key: "{{ ec2_access_key }}"                                                                                                                                                                                                                                                                             
