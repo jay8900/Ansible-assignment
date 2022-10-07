@@ -1,0 +1,13 @@
+block:                                                                                                                                                                                                                                                                                                                 
+      - name: Set name tag for AWS instances                                                                                                                                                                                                                                                                                 
+        ec2_tag:                                                                                                                                                                                                                                                                                                             
+          aws_access_key: "{{ ec2_access_key }}"                                                                                                                                                                                                                                                                             
+          aws_secret_key: "{{ ec2_secret_key }}"
+          security_token: "{{ access_token }}"
+          region: "{{ aws_region }}"
+          resource: "{{ item.1.id }}"
+          tags:
+            Name: "{{ aws_tags.Name }}-{{ '%02d' | format(item.0 + 1) }}"
+        with_indexed_items: "{{ ec2_instances.instances }}"
+        loop_control:
+          label: "{{ item.1.id }} - {{ aws_tags.Name }}-{{ '%02d' | format(item.0 + 1) }}
