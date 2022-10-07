@@ -1,4 +1,4 @@
-# python-flask -Calculator
+# python-App
 This is Python Flask Application which does the basic arithmetic operations (+,-,*,/) 
 
 
